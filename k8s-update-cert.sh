@@ -15,7 +15,7 @@ echo "Incorporando ca.crt al secret ingress-cert"
 CA_CRT=$(cat certs/ca.crt | base64 | sed 's/[\\&*./+!]/\\&/g' )
 
 echo "Generando manifiesto de secret ingress-cert"
-sed 's/{{CERT}}/'$CA_CRT'/g' template/01-update-secret.tpl > template/01-update-secret.yaml
+sed `s/{{CERT}}/$CA_CRT/g` template/01-update-secret.tpl > template/01-update-secret.yaml
 
 echo "Aplicando manifiesto"
 #kubectl apply -f 01-update-secret.yaml
