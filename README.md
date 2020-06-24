@@ -6,7 +6,7 @@ Se debe correr este script cada vez que se actualiza el certificado de let's enc
 
 Se debe incluir un archivo con nombre ```kubeconfig``` con el kube config necesario para aplicar los cambios en el servidor.
 
-Se debe incluir el archivo que contiene el fullchain.pem en la carpeta de este script.
+Se debe incluir el archivo que contiene el fullchain.pem en la carpeta ./certs
 
 ## Ejecución
 

@@ -9,10 +9,10 @@ fi
 
 
 echo "Creando ca.crt en base a $1"
-openssl x509 -outform der -in $1 -out ca.crt
+openssl x509 -outform der -in certs/$1 -out certs/ca.crt
 
 echo "Incorporando ca.crt al secret ingress-cert"
-CA_CRT=$(cat ca.crt | base64 | sed 's/[\\&*./+!]/\\&/g' )
+CA_CRT=$(cat certs/ca.crt | base64 | sed 's/[\\&*./+!]/\\&/g' )
 
 echo "Generando manifiesto de secret ingress-cert"
 sed 's/{{CERT}}/'$CA_CRT'/g' template/01-update-secret.tpl > template/01-update-secret.yaml
